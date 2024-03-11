@@ -4,7 +4,7 @@ const Todo = ({ id, item, deleteTodo }) => {
     return (
         <li>
             <span>{ item }</span>
-            <button onClick={ deleteTodo }>X</button>
+            <button onClick={ deleteTodo } data-testid="todo">X</button>
         </li>
     )
 };

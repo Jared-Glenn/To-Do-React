@@ -4,17 +4,17 @@ import NewTodoForm from "./NewTodoForm.jsx";
 import { v4 as uuid } from 'uuid';
 
 const TodoList = () => {
-    const { currentTodoList, setCurrentTodoList } = useState(null);
+    const [ currentTodoList, setCurrentTodoList ] = useState([]);
 
-    const addTodo = ({ id, item }) => {
+    const addTodo = ({ item }) => {
         const newTodo = { id: uuid(), item: item };
         setCurrentTodoList(currentTodoList => [...currentTodoList, newTodo]);
     };
     
-    const deleteTodo = (key) => {
+    const deleteTodo = (id) => {
             const removedTodoIndex = currentTodoList.findIndex(x => x.id === id);
             currentTodoList.splice(removedTodoIndex, 1);
-            setBoxList(boxList => [...boxList]);
+            setCurrentTodoList(currentTodoList => [...currentTodoList]);
         }
 
     return (
